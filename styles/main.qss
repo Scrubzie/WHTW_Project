@@ -1,3 +1,18 @@
 QWidget {
+    background-color: #111B27;
+}
+
+QMainWindow {
+    background-color: #080B10;
+}
+
+/* Left sidebar */
+#sidebar {
+    background-color: #111B27;
+    border-right: 1px solid #183C46;
+}
+
+/* Main content */
+#content {
     background-color: #080B10;
 }
