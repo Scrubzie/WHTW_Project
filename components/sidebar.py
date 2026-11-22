@@ -6,6 +6,7 @@ class Sidebar(QWidget):
 
     def __init__(self, app_version):
         super().__init__()
+        self.setObjectName("sidebar")
 
         self.app_version = app_version
         self.init_ui()
@@ -23,7 +24,6 @@ class Sidebar(QWidget):
         topbar = QHBoxLayout()
 
         self.logo = QLabel()
-
         pixmap = QPixmap("assets\\images\\icon.png")
 
         self.logo.setPixmap(
@@ -36,10 +36,8 @@ class Sidebar(QWidget):
         )
 
         self.logo.setAlignment(Qt.AlignmentFlag.AlignLeft)
-
         logo = QLabel("SEGMENTUM\nCOMMAND")
         version = QLabel(f"Total War v{self.app_version}")
-
         topbar.addWidget(self.logo)
         topbar.addWidget(logo)
 
@@ -64,3 +62,6 @@ class Sidebar(QWidget):
         )
 
         sidebar_layout.addWidget(footer)
+
+    def init_header():
+        pass

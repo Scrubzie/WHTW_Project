@@ -7,7 +7,8 @@ class Dashboard(QMainWindow):
         super().__init__()
 
         self.app_version = app_version
-        self.Sidebar = Sidebar(self.app_version)
+        self.setObjectName("dashboard")
+        self.sidebar = Sidebar(self.app_version)
         self.content = Content()
 
         self.init_window()
@@ -21,9 +22,10 @@ class Dashboard(QMainWindow):
 
 
     def init_ui(self):
-        
+
         # Central widget
         central_widget = QWidget()
+        self.setObjectName("central_widget")
         self.setCentralWidget(central_widget)
 
         # Main horizontal layout
@@ -32,5 +34,5 @@ class Dashboard(QMainWindow):
         main_layout.setSpacing(0)
 
         # Add widgets
-        main_layout.addWidget(self.Sidebar)
+        main_layout.addWidget(self.sidebar)
         main_layout.addWidget(self.content, 1)
