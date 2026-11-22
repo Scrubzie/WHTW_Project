@@ -1,5 +1,5 @@
 from datetime import datetime
-from PySide6.QtWidgets import QMainWindow, QWidget, QHBoxLayout, QVBoxLayout, QLabel, QPushButton
+from PySide6.QtWidgets import QWidget, QHBoxLayout, QVBoxLayout, QLabel, QPushButton
 from PySide6.QtGui import QPixmap, Qt
 
 class Sidebar(QWidget):
@@ -7,6 +7,7 @@ class Sidebar(QWidget):
     def __init__(self, app_version):
         super().__init__()
         self.setObjectName("sidebar")
+        self.sidebar_layout = QVBoxLayout(self)
 
         self.app_version = app_version
         self.init_ui()
@@ -17,10 +18,16 @@ class Sidebar(QWidget):
         self.setFixedWidth(230)
 
         # Sidebar layout
-        sidebar_layout = QVBoxLayout(self)
-        sidebar_layout.setContentsMargins(15, 20, 15, 20)
-        sidebar_layout.setSpacing(10)
+        self.sidebar_layout.setContentsMargins(15, 20, 15, 20)
+        self.sidebar_layout.setSpacing(10)
 
+        self.init_header()
+        self.sidebar_layout.addSpacing(30)
+        self.init_navigation()
+        self.sidebar_layout.addStretch()
+        self.init_footer()
+
+    def init_header(self):
         topbar = QHBoxLayout()
 
         self.logo = QLabel()
@@ -41,27 +48,24 @@ class Sidebar(QWidget):
         topbar.addWidget(self.logo)
         topbar.addWidget(logo)
 
-        sidebar_layout.addLayout(topbar)
-        sidebar_layout.addWidget(version)
-        sidebar_layout.addSpacing(30)
+        self.sidebar_layout.addLayout(topbar)
+        self.sidebar_layout.addWidget(version)
 
+    def init_navigation(self):
         button1 = QPushButton("Thing1")
-        sidebar_layout.addWidget(button1)
+        self.sidebar_layout.addWidget(button1)
         button2 = QPushButton("Thing2")
-        sidebar_layout.addWidget(button2)
+        self.sidebar_layout.addWidget(button2)
         button3 = QPushButton("Thing3")
-        sidebar_layout.addWidget(button3)
+        self.sidebar_layout.addWidget(button3)
         button4 = QPushButton("Thing4")
-        sidebar_layout.addWidget(button4)
+        self.sidebar_layout.addWidget(button4)
         button5 = QPushButton("Thing5")
-        sidebar_layout.addWidget(button5)
-        sidebar_layout.addStretch()
+        self.sidebar_layout.addWidget(button5)
 
+    def init_footer(self):
         footer = QLabel(
             f"© {datetime.now().year} A. Mann. All rights reserved."
         )
 
-        sidebar_layout.addWidget(footer)
-
-    def init_header():
-        pass
+        self.sidebar_layout.addWidget(footer)
