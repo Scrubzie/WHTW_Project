@@ -6,6 +6,25 @@ QMainWindow {
     background-color: #080B10;
 }
 
+QPushButton {
+    background-color: #34465F;
+    color: #E2E8F0;
+    border: none;
+    border-radius: 6px;
+    padding: 12px;
+    text-align: left;
+}
+
+QPushButton:hover {
+    background-color: #475B75;
+}
+
+QPushButton[active="true"] {
+    background-color: #2563EB;
+    color: white;
+    font-weight: bold;
+}
+
 /* Left sidebar */
 #sidebar {
     background-color: #111B27;
@@ -15,4 +34,20 @@ QMainWindow {
 /* Main content */
 #content {
     background-color: #080B10;
+}
+
+#version {
+    color: #94A3B8;
+    font-size: 9px;
+}
+
+#logo {
+    font-size: 15px;
+    font-weight: bold;
+    color: #60A5FA;
+}
+
+#footer {
+    color: #64748B;
+    font-size: 9px;
 }

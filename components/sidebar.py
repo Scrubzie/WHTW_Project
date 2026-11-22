@@ -4,12 +4,13 @@ from PySide6.QtGui import QPixmap, Qt
 
 class Sidebar(QWidget):
 
-    def __init__(self, app_version):
+    def __init__(self, app_version, content_widget):
         super().__init__()
         self.setObjectName("sidebar")
         self.sidebar_layout = QVBoxLayout(self)
 
         self.app_version = app_version
+        self.content_widget = content_widget
         self.init_ui()
 
     def init_ui(self):
@@ -44,7 +45,9 @@ class Sidebar(QWidget):
 
         self.logo.setAlignment(Qt.AlignmentFlag.AlignLeft)
         logo = QLabel("SEGMENTUM\nCOMMAND")
+        logo.setObjectName("logo")
         version = QLabel(f"Total War v{self.app_version}")
+        version.setObjectName("version")
         topbar.addWidget(self.logo)
         topbar.addWidget(logo)
 
@@ -52,20 +55,48 @@ class Sidebar(QWidget):
         self.sidebar_layout.addWidget(version)
 
     def init_navigation(self):
-        button1 = QPushButton("Thing1")
-        self.sidebar_layout.addWidget(button1)
-        button2 = QPushButton("Thing2")
-        self.sidebar_layout.addWidget(button2)
-        button3 = QPushButton("Thing3")
-        self.sidebar_layout.addWidget(button3)
-        button4 = QPushButton("Thing4")
-        self.sidebar_layout.addWidget(button4)
-        button5 = QPushButton("Thing5")
-        self.sidebar_layout.addWidget(button5)
+
+        navigation = [
+                    ("Dashboard", 0),
+                    ("Ship Constructor", 1),
+                    ("Ship Database", 2),
+                    ("Factions", 3),
+                    ("Fleet Builder", 4),
+                    ("Lua Exporter", 5),
+                ]
+        
+        self.nav_buttons = {}
+
+        for name, index in navigation:
+
+            button = QPushButton(name)
+            button.setObjectName("navButton")
+
+            button.clicked.connect(
+                lambda checked=False, i=index:
+                self.change_page(i)
+            )
+
+            self.sidebar_layout.addWidget(button)
+            self.nav_buttons[index] = button
 
     def init_footer(self):
         footer = QLabel(
             f"© {datetime.now().year} A. Mann. All rights reserved."
         )
+        footer.setObjectName("footer")
 
         self.sidebar_layout.addWidget(footer)
+
+    def change_page(self, index):
+        self.content_widget.setCurrentIndex(index)
+
+        for button_index, button in self.nav_buttons.items():
+            is_active = button_index == index
+
+            button.setProperty("active", "true" if is_active else "false")
+
+            # Refresh stylesheet
+            button.style().unpolish(button)
+            button.style().polish(button)
+            button.update()

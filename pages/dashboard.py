@@ -8,8 +8,8 @@ class Dashboard(QMainWindow):
 
         self.app_version = app_version
         self.setObjectName("dashboard")
-        self.sidebar = Sidebar(self.app_version)
         self.content = Content()
+        self.sidebar = Sidebar(self.app_version, self.content)
 
         self.init_window()
         self.init_ui()
