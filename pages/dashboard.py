@@ -21,8 +21,7 @@ class Dashboard(QMainWindow):
 
 
     def init_ui(self):
-        print("Test")
-
+        
         # Central widget
         central_widget = QWidget()
         self.setCentralWidget(central_widget)
