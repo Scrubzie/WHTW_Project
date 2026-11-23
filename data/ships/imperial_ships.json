@@ -1,0 +1,70 @@
+
+{
+  "factionId": "imperium",
+  "ships": [
+    {
+      "id": "imperial_escort_sword",
+      "name": "Sword-Class Frigate",
+      "class": "Escort",
+      "points": 35,
+
+      "stats": {
+        "hits": 2,
+        "speed": 25,
+        "turn": 90,
+        "shields": 1,
+        "armour": 5,
+        "turrets": 2
+      },
+
+      "weapons": [
+        {
+          "hardpointId": "mount_1",
+          "mountId": "dorsal_turret",
+          "weaponId": "macro_double_barrel_light_battery"
+        },
+        {
+          "hardpointId": "mount_2",
+          "mountId": "dorsal_turret",
+          "weaponId": "macro_double_barrel_light_battery"
+        }
+      ],
+
+      "specialRules": [
+        "escort"
+      ]
+    },
+    {
+      "id": "imperial_escort_firestorm",
+      "name": "Firestorm-Class Frigate",
+      "class": "Escort",
+      "points": 40,
+
+      "stats": {
+        "hits": 2,
+        "speed": 25,
+        "turn": 90,
+        "shields": 1,
+        "armour": 5,
+        "turrets": 2
+      },
+
+      "weapons": [
+        {
+          "hardpointId": "mount_1",
+          "mountId": "dorsal_turret",
+          "weaponId": "macro_double_barrel_light_battery"
+        },
+        {
+          "hardpointId": "mount_2",
+          "mountId": "prow_weapon_mount",
+          "weaponId": "lance_light_battery"
+        }
+      ],
+
+      "specialRules": [
+        "escort"
+      ]
+    }
+  ]
+}

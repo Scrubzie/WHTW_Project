@@ -1,0 +1,18 @@
+{
+  "weapons": [
+    {
+      "id": "macro_double_barrel_light_battery",
+      "name": "Double-Barrel Light Macro Battery",
+      "type": "gunnery",
+      "strength": 2,
+      "range": 30
+    },
+    {
+      "id": "lance_light_battery",
+      "name": "Light Lance Battery",
+      "type": "lance",
+      "strength": 1,
+      "range": 30
+    }
+  ]
+}

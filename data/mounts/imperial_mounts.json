@@ -1,0 +1,22 @@
+{
+  "mounts": [
+    {
+      "id": "dorsal_turret",
+      "name": "Dorsal Mount",
+      "type": "dorsal",
+      "allowedArcs": [
+        "port",
+        "prow",
+        "starboard"
+      ]
+    },
+    {
+      "id": "prow_weapon_mount",
+      "name": "Prow Weapon Mount",
+      "type": "prow",
+      "allowedArcs": [
+        "prow"
+      ]
+    }
+  ]
+}
