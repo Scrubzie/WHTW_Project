@@ -1,26 +1,5 @@
 from PySide6.QtWidgets import QStackedWidget, QWidget, QVBoxLayout, QLabel
 
-class Content(QStackedWidget):
-    def __init__(self):
-        super().__init__()
-        self.setObjectName("content")
-
-        self.init_pages()
-
-    def init_pages(self):
-        pages = [
-            "Dashboard",
-            "Ship Constructor",
-            "Ship Database",
-            "Factions",
-            "Fleet Builder",
-            "Lua Exporter",
-        ]
-
-        for page_name in pages:
-            page = PlaceholderPage(page_name)
-            self.addWidget(page)
-
 class PlaceholderPage(QWidget):
 
     def __init__(self, page_name):
@@ -37,3 +16,23 @@ class PlaceholderPage(QWidget):
         layout.addWidget(title)
         layout.addWidget(subtitle)
         layout.addStretch()
+
+class Content(QStackedWidget):
+    def __init__(self):
+        super().__init__()
+        self.setObjectName("content")
+
+        self.init_pages()
+
+    def init_pages(self):
+        pages = [
+            ("Dashboard", PlaceholderPage("Dashboard")),
+            ("Ship Constructor", PlaceholderPage("Ship Constructor")),
+            ("Ship Database", PlaceholderPage("Ship Database")),
+            ("Factions", PlaceholderPage("Factions")),
+            ("Fleet Builder", PlaceholderPage("Fleet Builder")),
+            ("Lua Exporter", PlaceholderPage("Lua Exporter")),
+        ]
+
+        for page_name, page in pages:
+            self.addWidget(page)
