@@ -1,4 +1,5 @@
 from PySide6.QtWidgets import QStackedWidget, QWidget, QVBoxLayout, QLabel
+from pages.ship_database import ShipDatabase
 
 class PlaceholderPage(QWidget):
 
@@ -28,7 +29,7 @@ class Content(QStackedWidget):
         pages = [
             ("Dashboard", PlaceholderPage("Dashboard")),
             ("Ship Constructor", PlaceholderPage("Ship Constructor")),
-            ("Ship Database", PlaceholderPage("Ship Database")),
+            ("Ship Database", ShipDatabase()),
             ("Factions", PlaceholderPage("Factions")),
             ("Fleet Builder", PlaceholderPage("Fleet Builder")),
             ("Lua Exporter", PlaceholderPage("Lua Exporter")),

@@ -28,7 +28,7 @@ QPushButton[active="true"] {
 /* Left sidebar */
 #sidebar {
     background-color: #111B27;
-    border-right: 1px solid #183C46;
+    border-right: 1px solid #26384b;
 }
 
 /* Main content */
@@ -50,4 +50,20 @@ QPushButton[active="true"] {
 #footer {
     color: #64748B;
     font-size: 9px;
+}
+
+#ship_database {
+    color: #080e16;
+}
+
+#ship_dossier_panel_background {
+    background-color: #111c29;
+    border: 1px solid #26384b;
+    border-radius: 6px;
+}
+
+#ship_list_panel_background {
+    background-color: #111c29;
+    border: 1px solid #26384b;
+    border-radius: 6px;
 }

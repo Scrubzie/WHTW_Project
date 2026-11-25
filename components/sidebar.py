@@ -1,8 +1,8 @@
 from datetime import datetime
-from PySide6.QtWidgets import QWidget, QHBoxLayout, QVBoxLayout, QLabel, QPushButton
+from PySide6.QtWidgets import QWidget, QHBoxLayout, QVBoxLayout, QLabel, QPushButton, QFrame
 from PySide6.QtGui import QPixmap, Qt
 
-class Sidebar(QWidget):
+class Sidebar(QFrame):
 
     def __init__(self, app_version, content_widget):
         super().__init__()
